@@ -48,22 +48,61 @@ class String
      description: "Returns true if string starts with any of the arguments",
            notes: ["Always returns false if no arguments given"]
   }
-
-
 end
 
 class Array
+  example = [1, 2, 3, 4]
+  n = 2
+  m1 = {
+            name: "first",
+  arument_number: (0..1),
+       arguments: {name: "n", type: Integer, default: 1},
+  return_classes: [Object, Array],
+          usages: ["example.first", "example.first(n)"],
+    return_value: [1, 2],
+     description: "Returns the first n objects in the array",
+           notes: "Returns an array when n is present."
+  }
 
-m1_name =
+  m2 = {
+            name: "delete_at",
+  arument_number: 1,
+       arguments: {name: "n", type: Integer},
+  return_classes: Object,
+          usages: "example.delete_at(n)",
+    return_value: 3,
+     side_effect: example = [1, 2, 4],
+     description: "Deletes element at index n from array and returns element"
+  }
+
+  m3 = {
+            name: "delete",
+  arument_number: 1,
+       arguments: {name: "n", type: Object},
+  return_classes: Object,
+          usages: "example.delete(n)",
+    return_value: 2,
+     side_effect: example = [1, 3, 4],
+     description: "Deletes n from array if it exists and returns n",
+           notes: "If n is not in array, it returns nil or the result of "\
+                  "the do block that follows, if present."
+  }
+
+  m4 = {
+            name: "pop",
+  arument_number: (0..1),
+       arguments: {name: "n", type: Integer, default: 1},
+  return_classes: [Object, Array],
+          usages: "example.pop(n)",
+    return_value: [3, 4],
+     side_effect: example = [1, 2],
+     description: "Removes the last n objects in the array and returns them",
+           notes: "Returns the last object or an array when n is present"
+  }
 
 end
 
-Array
 
-first
-delete_at
-delete
-pop
 Hash
 
 to_a
